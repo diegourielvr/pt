@@ -41,7 +41,7 @@ def downloadAndTranscribe(urls, ruta_descarga, transcriber, ruta_transcripciones
 if __name__ == '__main__':
     # Cargar datos extraidos
     ruta_actual = os.path.join(os.getcwd(), "recoleccion")
-    archivo_datos = os.path.join(ruta_actual, os.path.join("datos_extraidos", "data.csv"))
+    archivo_datos = os.path.join(ruta_actual, os.path.join("datos", "data.csv"))
     data = loadDataFromCSV(archivo_datos, ['url']) # devuelve datos tabulados'
 
     # Cargar modelo
@@ -51,5 +51,6 @@ if __name__ == '__main__':
 
     # Decargar videos y guardar transcripcion
     ruta_descarga_videos = os.path.join(ruta_actual, "videos")
-    ruta_transcripciones = os.path.join(ruta_actual, "transcripciones.csv")
+    ruta_transcripciones = os.path.join(ruta_actual, os.path.join("datos", "transcripciones.csv"))
+    #ruta_transcripciones = os.path.join(ruta_actual, "datos", "transcripciones.csv")
     downloadAndTranscribe(data['url'], ruta_descarga_videos, transcriber, ruta_transcripciones) # obtener solo la información de la columna url
